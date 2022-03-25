@@ -9,7 +9,10 @@ describe("add todo test", function () {
   //it blocks
   it("successfully adds a todo to application", async function () {
     // launch the browser
-    let driver = await new Builder().forBrowser("chrome").build();
+    let driver = await new Builder()
+      .forBrowser("chrome")
+      .usingServer("http://localhost:4444/wd/hub/")
+      .build();
 
     //navigate to our application
     await driver.get("https://lambdatest.github.io/sample-todo-app/");
